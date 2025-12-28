@@ -113,8 +113,10 @@ echo $silver_early_upmigrate $gold_early_upmigrate > /proc/sys/walt/sched_early_
 echo 325 > /proc/sys/walt/walt_low_latency_task_threshold
 
 # cpuset parameters
-echo 0-2 > /dev/cpuset/background/cpus
+echo 0-1 > /dev/cpuset/background/cpus
+echo 1 > /dev/cpuset/restricted/cpus
 echo 0-2 > /dev/cpuset/system-background/cpus
+echo 0-6 > /dev/cpuset/foreground/cpus
 
 # Turn off scheduler boost at the end
 echo 0 > /proc/sys/walt/sched_boost
@@ -4116,5 +4118,175 @@ echo 0x18590fe0 0x20 > /sys/devices/platform/soc/soc:mem_dump/register_config
 echo 0x17d00000 0x10000 > /sys/devices/platform/soc/soc:mem_dump/register_config
 echo 0x17d20000 0x10000 > /sys/devices/platform/soc/soc:mem_dump/register_config
 echo 0x17DE8050 0x4 > /sys/devices/platform/soc/soc:mem_dump/register_config
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/down_rate_limit_us
+echo 200 > /sys/devices/system/cpu/cpu0/cpufreq/walt/down_rate_limit_us
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/down_rate_limit_us
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/target_load_thresh
+echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/walt/target_load_thresh
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/target_load_thresh
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/up_delay_freq
+echo 1113600 > /sys/devices/system/cpu/cpu0/cpufreq/walt/up_delay_freq
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/up_delay_freq
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/pl
+echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/walt/pl
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/pl
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/boost
+echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/walt/boost
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/boost
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/target_load_shift
+echo 100 > /sys/devices/system/cpu/cpu0/cpufreq/walt/target_load_shift
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/target_load_shift
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_low_freq
+echo 698001 > /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_low_freq
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_low_freq
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/rtg_boost_freq
+echo 1000000 > /sys/devices/system/cpu/cpu0/cpufreq/walt/rtg_boost_freq
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/rtg_boost_freq
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_low_freq_kernel
+echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_low_freq_kernel
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_low_freq_kernel
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/up_rate_limit_us
+echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/walt/up_rate_limit_us
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/up_rate_limit_us
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_high_freq_kernel
+echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_high_freq_kernel
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_high_freq_kernel
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/hispeed_load
+echo 18 > /sys/devices/system/cpu/cpu0/cpufreq/walt/hispeed_load
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/hispeed_load
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_high_freq
+echo 998001 > /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_high_freq
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/adaptive_high_freq
+
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/walt/hispeed_freq
+echo 1000000 > /sys/devices/system/cpu/cpu0/cpufreq/walt/hispeed_freq
+chmod 440 /sys/devices/system/cpu/cpu0/cpufreq/walt/hispeed_freq
+
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/down_rate_limit_us
+echo 180 > /sys/devices/system/cpu/cpu3/cpufreq/walt/down_rate_limit_us
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/down_rate_limit_us
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/target_load_thresh
+echo 0 > /sys/devices/system/cpu/cpu3/cpufreq/walt/target_load_thresh
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/target_load_thresh
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/up_delay_freq
+echo 1920000 > /sys/devices/system/cpu/cpu3/cpufreq/walt/up_delay_freq
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/up_delay_freq
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/pl
+echo 1 > /sys/devices/system/cpu/cpu3/cpufreq/walt/pl
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/pl
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/boost
+echo 0 > /sys/devices/system/cpu/cpu3/cpufreq/walt/boost
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/boost
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/target_load_shift
+echo 777 > /sys/devices/system/cpu/cpu3/cpufreq/walt/target_load_shift
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/target_load_shift
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_low_freq
+echo 698001 > /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_low_freq
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_low_freq
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/rtg_boost_freq
+echo 1000000 > /sys/devices/system/cpu/cpu3/cpufreq/walt/rtg_boost_freq
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/rtg_boost_freq
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_low_freq_kernel
+echo 802400 > /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_low_freq_kernel
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_low_freq_kernel
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/up_rate_limit_us
+echo 8900 > /sys/devices/system/cpu/cpu3/cpufreq/walt/up_rate_limit_us
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/up_rate_limit_us
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_high_freq_kernel
+echo 1450000 > /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_high_freq_kernel
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_high_freq_kernel
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/hispeed_load
+echo 35 > /sys/devices/system/cpu/cpu3/cpufreq/walt/hispeed_load
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/hispeed_load
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_high_freq
+echo 998001 > /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_high_freq
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/adaptive_high_freq
+
+chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/walt/hispeed_freq
+echo 1000000 > /sys/devices/system/cpu/cpu3/cpufreq/walt/hispeed_freq
+chmod 440 /sys/devices/system/cpu/cpu3/cpufreq/walt/hispeed_freq
+
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/down_rate_limit_us
+echo 180 > /sys/devices/system/cpu/cpu7/cpufreq/walt/down_rate_limit_us
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/down_rate_limit_us
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/target_load_thresh
+echo 4096 > /sys/devices/system/cpu/cpu7/cpufreq/walt/target_load_thresh
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/target_load_thresh
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/up_delay_freq
+echo 1920000 > /sys/devices/system/cpu/cpu7/cpufreq/walt/up_delay_freq
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/up_delay_freq
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/pl
+echo 1 > /sys/devices/system/cpu/cpu7/cpufreq/walt/pl
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/pl
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/boost
+echo 0 > /sys/devices/system/cpu/cpu7/cpufreq/walt/boost
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/boost
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/target_load_shift
+echo 777 > /sys/devices/system/cpu/cpu7/cpufreq/walt/target_load_shift
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/target_load_shift
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_low_freq
+echo 729000 > /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_low_freq
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_low_freq
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/rtg_boost_freq
+echo 1300000 > /sys/devices/system/cpu/cpu7/cpufreq/walt/rtg_boost_freq
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/rtg_boost_freq
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_low_freq_kernel
+echo 802400 > /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_low_freq_kernel
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_low_freq_kernel
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/up_rate_limit_us
+echo 8900 > /sys/devices/system/cpu/cpu7/cpufreq/walt/up_rate_limit_us
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/up_rate_limit_us
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_high_freq_kernel
+echo 1450000 > /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_high_freq_kernel
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_high_freq_kernel
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/hispeed_load
+echo 35 > /sys/devices/system/cpu/cpu7/cpufreq/walt/hispeed_load
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/hispeed_load
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_high_freq
+echo 998001 > /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_high_freq
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/adaptive_high_freq
+
+chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/walt/hispeed_freq
+echo 1500000 > /sys/devices/system/cpu/cpu7/cpufreq/walt/hispeed_freq
+chmod 440 /sys/devices/system/cpu/cpu7/cpufreq/walt/hispeed_freq
 
 setprop vendor.post_boot.parsed 1
